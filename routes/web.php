@@ -27,3 +27,10 @@ Route::delete('/posts/{id}', [PostController::class, 'destroy'])->name('post.del
 Route::get('posts/{id}', [PostController::class, 'show'])->name('post.show');
 Route::get('/posts', [PostController::class, 'index'])->name('post.index');
 Route::post('/posts/store', [PostController::class, 'store'])->name('post.store');
+
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
+
+require __DIR__.'/auth.php';
